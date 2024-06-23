@@ -1,0 +1,11 @@
+<div *ngFor="let item of cart$ | async" class="cart-item">
+    <span>{{ item.product.name }}</span>
+    <span>{{ item.product.price | currency }}</span>
+    <input type="number" [value]="item.quantity" (change)="updateQuantity(item, $event.target.value)">
+    <button mat-button (click)="removeItem(item.product.id)">Remove</button>
+  </div>
+  
+  <div class="total">
+    <span>Total: {{ (cart$ | async)?.reduce((acc, item) => acc + item.product.price * item.quantity, 0) | currency }}</span>
+  </div>
+  

@@ -1,0 +1,32 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" required>
+      <div *ngIf="submitted && checkoutForm.controls.name.errors">
+        <small>Name is required</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="address">Address</label>
+      <input id="address" formControlName="address" required>
+      <div *ngIf="submitted && checkoutForm.controls.address.errors">
+        <small>Address is required</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="paymentDetails">Payment Details</label>
+      <input id="paymentDetails" formControlName="paymentDetails" required>
+      <div *ngIf="submitted && checkoutForm.controls.paymentDetails.errors">
+        <small>Payment details are required</small>
+      </div>
+    </div>
+  
+    <button type="submit" mat-raised-button color="primary">Submit Order</button>
+  </form>
+  
+  <div *ngIf="orderConfirmed" class="confirmation">
+    <p>Order confirmed! Thank you for your purchase.</p>
+  </div>
+  
