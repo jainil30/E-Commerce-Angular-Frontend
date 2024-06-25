@@ -1,0 +1,29 @@
+<div class='row'>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>Login</h3>
+                <hr />
+                <div class="mb-3">
+                    <label htmlFor="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="e.g. name@example.com" [(ngModel)]="loginDetails.email" />
+                </div>
+                <div class="mb-3">
+                    <label htmlFor="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" [(ngModel)]="loginDetails.password"/>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary w-25" (click)="handleLogin()">Login</button>
+                    <div class="d-flex justify-content-center mt-3">
+                        <p>Don't have an account?</p>
+                        <a routerLink='/signup' class='ms-2'>
+                            <p>Signup</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>

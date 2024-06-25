@@ -1,0 +1,33 @@
+<div>
+    <h3>Product List</h3>
+    <div class="row mt-3">
+        @for (p of products; track $index) {
+            <div class="col-md-3" key={p._id}>
+                <div class="card mt-3">
+                    <a [routerLink]="['/product-details', p._id]">
+                        <img [src]="p.image" class="card-img-top" alt="product-image" />
+                    </a>
+                        <div class="card-body">
+                            <a [routerLink]="['/product-details', p._id]" style="text-decoration: none; color: #000">
+                                <h5 class="card-title">{{ p.name }}</h5>
+                                <h4>₹ {{ p.price }}</h4>
+                            </a>
+                            @if (p.qty === 0) {
+                                <button class="btn btn-primary w-100" (click)='handleAddToCart(p._id)'>Add To Cart</button>
+                            } @else {
+                                <div class='d-flex justify-content-evenly'>
+                                    <button class="btn btn-primary" (click)='handleQtyUpdate(p._id, p.qty - 1)'>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </button>
+                                    <span class="card py-1 px-3 fs-5">{{ p.qty }}</span>
+                                    <button class="btn btn-primary" (click)='handleQtyUpdate(p._id, p.qty + 1)'>
+                                        <i class="bi bi-plus-lg"></i>
+                                    </button>
+                                </div>
+                            }
+                        </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
